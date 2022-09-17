@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投句作成</title>
+</head>
+<body>
+  <%- include('header'); %>
+  投句する
+  <ul class="table-body">
+      <li>
+        <div class="item-data">
+          <% renku.forEach((renku) => { %>
+          <span class="id-column"><%= renku.number %></span>
+          <span class="name-column"><%= renku.season %></span>
+          <span class="name-column"><%= renku.joza %></span>
+          <span class="name-column"><%= renku.post %></span>
+          <span class="name-column"><%= renku.penname %></span>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+  <div class="container">
+      <p class="form-label">投句する</p>
+      <form action="/create" method="post">
+        <input type="text" name="post">
+        <!-- <input type="number" value=<%= locals.memberId %>> -->
+        <!-- <input type="number" name="renku_id"> -->
+        <input type="submit" value="投句する">
+      </form>
+  </div>
+
+</body> 
+</html>

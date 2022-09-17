@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投句作成</title>
+</head>
+<body>
+  <%- include('header'); %>
+ 
+  <div class="container">
+      <p class="form-label">投句する</p>
+      <form action="/update/<%= post.post_id %>" method="post">
+        <input type="text" name="post" value="<%= post.post %>">
+        <input type="number" name="member_id">
+        <!-- <input type="number" name="renku_id"> -->
+        <input type="submit" value="更新する">
+      </form>
+      <div class="item-menu">
+        <form action="/delete/ <%= post.post_id %>" method="post">
+          <input type="submit" value="削除">
+        </form>
+      </div>
+      <a href="/postlist/">一覧に戻る</a> 
+  </div>
+
+</body>
+</html>

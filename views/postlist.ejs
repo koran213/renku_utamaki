@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投句一覧</title>
+</head>
+<body>
+  <%- include('header'); %>
+  投句一覧
+  <ul class="table-body">
+    <% posts.forEach((post) => { %>
+      <li>
+        <div class="item-data">
+          <!-- <a href="/edit/ <%= post.post_id %>" class="id-column"><%= post.post %></a> -->
+          <% if(locals.penname === post.penname) {%>
+            <a href="/edit/<%= post.post_id %>"><%= post.post %></a>
+            <% } else { %>
+          <span class="id-column"><%= post.post %></span>
+          <% } %>
+          <span class="name-column"><%= post.penname %></span>
+        </div>
+        <!-- <div class="item-menu">
+          <% if(locals.penname === post.penname) {%>
+            <a href="/edit/<%= post.post_id %>">編集</a>
+            <% } %>
+        </div> -->
+        <!-- <div class="item-menu">
+          <form action="/delete/ <%= post.post_id %>" method="post">
+            <input type="submit" value="削除">
+          </form>
+        </div> -->
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
